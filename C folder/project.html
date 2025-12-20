@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Indian Language Typing Demo</title>
+  <script src=""></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f8f9fa;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-size: 18px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    label, select {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📝 Indian Language Typing Input (PramukhIME)</h2>
+
+  <label for="language">Choose Language:</label>
+  <select id="language" onchange="changeLanguage()">
+    <option value="marathi" selected>Marathi</option>
+    <option value="hindi">Hindi</option>
+    <option value="tamil">Tamil</option>
+    <option value="telugu">Telugu</option>
+  </select>
+
+  <textarea id="typingBox" placeholder="Start typing here..."></textarea>
+
+  <script>
+    // Initialize PramukhIME
+    const ime = new PramukhIME();
+    ime.enable("typingBox", "marathi"); // Default is Marathi
+
+    // Change language function
+    function changeLanguage() {
+      const selectedLang = document.getElementById("language").value;
+      ime.setLanguage("typingBox", selectedLang);
+      document.getElementById("typingBox").focus();
+    }
+  </script>
+
+</body>
+</html>
