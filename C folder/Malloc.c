@@ -3,6 +3,7 @@
 
 struct node *create(struct node *head);
 struct node *AddAtEnd(struct node *head, int value);
+struct node *Delete(struct node *head, int value);
 void display(struct node *head);
 
 struct node{
@@ -12,9 +13,19 @@ struct node{
 
 
 void main(){
-    head = create(head);
+    int num;
+    head = AddAtEnd(head,12);  
+    head = AddAtEnd(head,23);  
+    head = AddAtEnd(head,15);  
+    head = AddAtEnd(head,17);  
+    head = AddAtEnd(head,13);  
+    head = AddAtEnd(head,35);  
+    head = AddAtEnd(head,10);
+    display(head);          
+    printf("\nEnter num to be deleted: ");
+    scanf("%d",&num);
+    head = Delete(head, num);
     display(head);
-
 
 } 
 
@@ -58,7 +69,7 @@ void display(struct node *head){
     ptr = head;
     printf("\n");
     if(ptr == NULL){
-        printf("Linked list is emply");
+        printf("Linked list is empty");
     }
     else{
         while(ptr != NULL){
@@ -70,4 +81,30 @@ void display(struct node *head){
     }
 }
 
-  
+struct node *Delete(struct node *head, int value){
+    struct node *ptr, *temp;
+    ptr = head;
+    
+    if(head == NULL){
+        printf("\n Linked list is empty :( ");
+        return head;
+    }
+    if(head -> data == value){
+        temp = head;
+        head = head -> next;
+        free(temp);
+        return head;
+    }
+
+    while(ptr -> next != NULL){
+        if(ptr -> next ->  data == value){
+            temp = ptr -> next;
+            ptr -> next = temp -> next;
+            free(temp);
+            return head;
+        }
+        ptr = ptr -> next;
+    }
+    printf("\nValue not found");
+    return head;
+}
