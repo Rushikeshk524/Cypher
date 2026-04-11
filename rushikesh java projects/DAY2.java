@@ -8,7 +8,7 @@ public class DAY2 {
         if(num1 == 0 || num1 == 1){
             return 1;
         }
-        return num1*MyFact(num1-1);
+        return num1*MyFact(num1 - 1);
     }
     public static void main(String[] args){
        Scanner sc = new Scanner(System.in);

@@ -11,30 +11,30 @@ class ValidParenthesis{
             {
                 stack.push(c);
             }
+            
+            else if(c == ')' && stack.peek() == '(')
+            {
+                stack.pop();
+            }
+            else if(c == '}' && stack.peek() == '{')
+            {
+                stack.pop();
+            }
+            else if(c == ']' && stack.peek() == '[')
+            {
+                stack.pop();
+            }
             else
             {
-                if(stack.isEmpty()){
-                    return false;
-                }
-                if(c == ')' && stack.peek() != '(')
-                {
-                    return false;
-                }
-                if(c == ']' && stack.peek() != '[')
-                {
-                    return false;
-                }
-                if(c == '}' && stack.peek() != '{')
-                {
-                    return false;
-                }
+                return false;
             }
         }
         return stack.isEmpty();
+    
     }
 
     public static void main(String[] args) {
-        String s = "({}())";
+        String s = "{()}";
         boolean result = isValid(s);
         System.out.println(result);
     }
