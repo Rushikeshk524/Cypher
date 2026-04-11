@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+        echo "hello World<br>";
+        $color = 'red';
+        echo " My Bike is in color : $color <br>";
+
+
+        $x = 4;
+        $y = 5;
+
+        echo "$x + $y <br>";
+
+        var_dump(5);
+        var_dump("John");
+        var_dump(3.14);
+        var_dump(true);
+        var_dump([2, 3, 56]);
+        var_dump(NULL);
+        echo "<br>";
+
+        $x = 5;
+
+        function myTest($x){
+            // $x = 6;
+            echo "<br>variable x inside function is: $x <br>";
+
+        }
+        myTest($x);
+
+        echo "<br>variable x outside function is: $x<br>";
+
+        $name = "Rushikesh";
+        $Lname = "kamble";
+        echo "$name $Lname<br>";
+        echo "";
+
+
+        class Car{
+            public $color;
+            public $model;
+            public function __construct($color, $model){
+                $this->color = $color;
+                $this->model = $model;
+            }
+            public function message(){
+                return "My car is" .$this->model. "and color is" .$this->color. "!";
+            }
+        }
+
+        $myCar = new Car("red", "Volvo");
+        var_dump($myCar);
+
+
+        $name = "rushikesh";
+        $Name = 'Rushikesh';
+        echo "<br>hello $name<br>";
+        $name = "<br>hello $Name<br>";
+        echo 'hello $x';
+    ?>
+</body>
+</html>
+
